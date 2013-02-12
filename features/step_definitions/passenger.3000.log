@@ -1,0 +1,2 @@
+2013/02/07 22:48:45 [error] 11928#0: *4 "/home/ak/Mike/www/ticketee/features/step_definitions/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+2013/02/07 22:49:54 [error] 12012#0: *4 "/home/ak/Mike/www/ticketee/features/step_definitions/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"

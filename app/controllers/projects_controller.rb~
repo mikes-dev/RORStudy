@@ -1,0 +1,22 @@
+class ProjectsController < ApplicationController
+	def index
+	
+	end
+
+	def new
+		@Project = Project.new
+	end
+	
+	def create
+		@Project = Project.new(params[:project])
+		@Project.save			 
+		flash[:notice] = "Project has been created."
+		redirect_to @Project
+	end
+
+	def show
+		@Project = Project.find(params[:id})
+	end
+
+
+end
