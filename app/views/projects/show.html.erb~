@@ -1,2 +1,8 @@
-<h2><%= @project.name %></h2>
+<h2><%= @Project.name %></h2>
+
+<% title(@Project.name, "Projects") %>
+
+<% @title = "TextMate 2 - Projects - Ticketee" %>
+
+<%= link_to "Edit Project", edit_project_path(@project) %>
 
