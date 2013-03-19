@@ -27,6 +27,11 @@
 
 <% end %>
 
+<%= admins_only do %>
+	<%= link_to "Admin", admin_root_path %><br>
+<% end %>
+
+
 </nav>
 
 <%= yield %>
