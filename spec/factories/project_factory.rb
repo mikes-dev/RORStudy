@@ -3,3 +3,9 @@ FactoryGirl.define do
 		project.name 'Ticketee'
 	end
 end
+
+#FactoryGirl.define do	
+#	factory :user do |user|
+#			user.name 'TestAdmin'
+#	end
+#end

@@ -39,19 +39,22 @@ gem 'therubyracer'
 # To use debugger
 # gem 'debugger'
 group :test, :development do
-	gem 'rspec-rails', '~> 2.5'
+	gem 'rspec-rails', '~> 2.11'
 end
 
 group :test do
-	gem 'cucumber-rails'
-	gem 'capybara'
+	gem 'cucumber-rails-training-wheels'
+#	gem 'cucumber-rails'
+	gem 'capybara', '1.1.4'
 	gem 'database_cleaner'
 	gem 'cucumber'
 	gem 'factory_girl_rails'
+	gem 'email_spec'
 end
 
+gem 'devise', '~> 1.4.3'
 
-gem 'cucumber-rails-training-wheels'
+# gem 'cucumber-rails-training-wheels'
 
 
 
