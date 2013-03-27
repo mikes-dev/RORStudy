@@ -10,6 +10,8 @@ class TicketsController < ApplicationController
 
 	before_filter :authorize_update!, :only => [:edit, :update]
 
+	before_filter :authorize_delete!, :only => [:destroy]
+
 
 	def new
 		@ticket = @Project.tickets.build
@@ -77,5 +79,11 @@ class TicketsController < ApplicationController
 			end
 		end
 
+		def authorize_delete!
+			if !current_user.admin? && cannot?(:"delete tickets", @Project)
+				flash[:alert] = "You cannot delete tickets from this project."
+				redirect_to @Project
+			end
+		end
 
 end
