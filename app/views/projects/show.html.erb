@@ -11,8 +11,9 @@
 :confirm => "Are you sure you want to delete this project?" %>
 <% end %>
 
-<%= link_to "New Ticket", new_project_ticket_path(@Project) %>
-
+<%= authorized?("create tickets".to_sym, @Project) do %>
+	<%= link_to "New Ticket", new_project_ticket_path(@Project) %>
+<% end %>
  
 <ul id='tickets'>
 	<% @Project.tickets.each do |ticket| %>
