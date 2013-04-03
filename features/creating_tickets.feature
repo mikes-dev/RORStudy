@@ -1,3 +1,5 @@
+@javascript
+
 Feature: Creating Tickets
 	In order to create tickets for projects
 	As a user
