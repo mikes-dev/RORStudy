@@ -14,11 +14,20 @@
 <%= authorized?("create tickets".to_sym, @Project) do %>
 	<%= link_to "New Ticket", new_project_ticket_path(@Project) %>
 <% end %>
+
+<%= form_tag search_project_tickets_path(@Project),
+	:method => :get do %>
+<%= label_tag "search" %>
+<%= text_field_tag "search", params[:search] %>
+<%= submit_tag "Search" %>
+<% end %>
+
  
 <ul id='tickets'>
-	<% @Project.tickets.each do |ticket| %>
+	<% @tickets.each do |ticket| %>
 <li>
-	#<%= ticket.id %> - <%= link_to ticket.title, [@Project, ticket] %>
+	<%= render ticket.state if ticket.state %>
+	<%= ticket.id %> - <%= link_to ticket.title, [@Project, ticket] %>
 </li>
 <% end %>
 </ul>

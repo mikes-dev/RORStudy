@@ -1,6 +1,9 @@
 <div id='ticket'>
-<h2><%= @ticket.title %></h2>
-<%= simple_format(@ticket.description) %>
+	<h2><%= @ticket.title %></h2>
+	<%= simple_format(@ticket.description) %>
+
+	<div id='tags'><%= render @ticket.tags %></div>
+	
 	<% if @ticket.assets.exists? %>
 		<h3>Attached Files</h3>
 		<div class="assets">
@@ -15,7 +18,7 @@
 			</p>
 		<% end %>
 	<% end %>
-</div>
+	
  
 <%= authorized?("edit tickets", @Project) do %>
 	<%= link_to "Edit Ticket", [:edit, @Project, @ticket] %>
@@ -32,8 +35,9 @@
 
 
 <br><small>Created by <%= @ticket.user.email %></small>
+<%= render @ticket.state if @ticket.state %>
+</div>
 
-<%= render "comments/form" %>
 
 <h3>Comments</h3>
 	<div id='comments'>
@@ -43,3 +47,18 @@
 		There are no comments for this ticket.
 	<% end %>
 	</div>
+
+
+<%= render "comments/form" %>
+
+</div>
+
+<div id='watchers'>
+  <%= toggle_watching_button %>
+  <h4>Watchers</h4>
+  <ul>
+   <% @ticket.watchers.each do |watcher| %>
+      <li><%= watcher %></li>
+    <% end %>  
+  </ul>
+</div>

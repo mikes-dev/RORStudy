@@ -38,8 +38,12 @@ gem 'therubyracer'
 
 # To use debugger
 # gem 'debugger'
-group :test, :development do
+group :development do
 	gem 'rspec-rails', '~> 2.11'
+	gem 'gmail'
+	gem 'capistrano'
+	gem 'thin'
+	gem 'meta_request'
 end
 
 group :test do
@@ -50,11 +54,13 @@ group :test do
 	gem 'cucumber'
 	gem 'factory_girl_rails'
 	gem 'email_spec'
+	gem 'gmail'
 end
 
 gem 'devise', '~> 1.4.3'
 gem 'cancan'
 gem 'paperclip'
+gem 'searcher'
 # gem 'cucumber-rails-training-wheels'
 
 

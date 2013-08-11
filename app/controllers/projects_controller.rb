@@ -14,10 +14,14 @@ class ProjectsController < ApplicationController
 		@projects = Project.for(current_user).all
 	end
 
+	def show 	
+	 	@tickets = @Project.tickets
+	end
+
 	def new
 		@Project = Project.new
 	end
-	
+
 	def create
 		@Project = Project.new(params[:project])
 		if @Project.save			 
@@ -29,9 +33,10 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-	def show
-		@Project = Project.find(params[:id])
-	end
+	# def show
+	# 	@Project = Project.find(params[:id])
+	# 	#@tickets = @project.tickets
+	# end
 	
 	def edit
 		@Project = Project.find(params[:id])

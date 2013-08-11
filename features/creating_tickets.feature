@@ -11,6 +11,7 @@ Background:
 	| user@ticketee.com | password |
 	And "user@ticketee.com" can view the "Internet Explorer" project
 	And "user@ticketee.com" can create tickets in the "Internet Explorer" project
+	And "user@ticketee.com" can tag the "Internet Explorer" project
 	And I am signed in as them
 	And I am on the homepage
 	When I follow "Internet Explorer"
@@ -31,12 +32,21 @@ Scenario: Creating a ticket with an attachment
 	And I fill in "Description" with "The blink tag has an undocumented speed attribute"
 	And I attach the file "spec/fixtures/speed.txt" to "File #1"
 	And I attach the file "spec/fixtures/spin.txt" to "File #2"
-	And I attach the file "spec/fixtures/gradient.txt" to "File #3"
 	And I press "Create Ticket"
 	Then I should see "Ticket has been created."
 	And I should see "speed.txt" within "#ticket .assets"
-	And I should see "spin.txt" within "#ticket .assets"
-	And I should see "gradient.txt" within "#ticket .assets"
+	And I should see "spin.txt" within "#ticket .assets"	
+
+Scenario: Creating a ticket with tags
+	When I fill in "Title" with "Non-standards compliance"
+	And I fill in "Description" with "My pages are ugly!"
+	And I fill in "Tags" with "browser visual"
+	And I press "Create Ticket"
+	Then I should see "Ticket has been created."
+	And I should see "browser" within "#ticket #tags"
+	And I should see "visual" within "#ticket #tags"
+
+
 
 
 

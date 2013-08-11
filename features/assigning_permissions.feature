@@ -12,6 +12,7 @@ Background:
 	| email | password |
 	| user@ticketee.com | password |
 	And there is a project called "TextMate 2"
+	Given there is a state called "Open"
 	When I follow "Admin"
 	And I follow "Users"
 	And I follow "user@ticketee.com"
@@ -19,7 +20,7 @@ Background:
 	And "user@ticketee.com" has created a ticket for this project:
 	| title | description |
 	| Shiny! | Eye-blindingly so |
-
+	
 Scenario: Viewing a project
 	When I check "View" for "TextMate 2"
 	And I press "Update"
@@ -60,6 +61,21 @@ Scenario: Deleting a ticket for a project
 	And I follow "Shiny!"
 	And I follow "Delete"
 	Then I should see "Ticket has been deleted."
+Scenario: Changing states for a ticket
+	When I check "View" for "TextMate 2"
+	And I check "Change States" for "TextMate 2"
+	And I press "Update"
+	And I follow "Sign out"
+	Given I am signed in as "user@ticketee.com"
+	When I follow "TextMate 2"
+	And I follow "Shiny!"
+	When I fill in "Text" with "Opening this ticket."
+	Then show me the page
+	And I select "Open" from "State"
+	And I press "Create Comment"
+	Then I should see "Comment has been created."
+	And I should see "Open" within "#ticket .state"
+
 
 
 
