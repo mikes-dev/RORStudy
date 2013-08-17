@@ -62,8 +62,6 @@ gem 'paperclip'
 gem 'searcher'
 # gem 'cucumber-rails-training-wheels'
 
-group :production do
-	gem 'pg'
-end
+
 
 
