@@ -5,9 +5,6 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -44,6 +41,7 @@ group :development do
 	gem 'capistrano'
 	gem 'thin'
 	gem 'meta_request'
+	gem 'sqlite3'
 end
 
 group :test do
@@ -55,6 +53,7 @@ group :test do
 	gem 'factory_girl_rails'
 	gem 'email_spec'
 	gem 'gmail'
+	gem 'sqlite3'
 end
 
 gem 'devise', '~> 1.4.3'
@@ -63,5 +62,8 @@ gem 'paperclip'
 gem 'searcher'
 # gem 'cucumber-rails-training-wheels'
 
+group :production do
+	gem 'pg'
+end
 
 
