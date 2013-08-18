@@ -34,7 +34,7 @@
 </nav>
 
 
-<br><small>Created by <%= @ticket.user.email %></small>
+<br><small>Created by <%= @ticket.user.display_name %></small>
 <%= render @ticket.state if @ticket.state %>
 </div>
 

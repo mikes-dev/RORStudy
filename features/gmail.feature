@@ -7,7 +7,7 @@ Background:
 	Given there are the following users:
 | email | password |
 | alice@ticketee.com| password |
-| mikes.dev1@gmail.com | Commsec 1 |
+| mikes.dev1@gmail.com |  |
 
 And Action Mailer delivers via SMTP
 
@@ -29,7 +29,7 @@ Scenario: Receiving a real-world email
  Then I should see "Comment has been created."
  When I log into gmail with:
  | username | password |
- | mikes.dev1@gmail.com | Commsec 1 |
+ | mikes.dev1@gmail.com |  |
  Then there should be an email from Ticketee in my inbox
 
 

@@ -60,6 +60,7 @@ gem 'devise', '~> 1.4.3'
 gem 'cancan'
 gem 'paperclip'
 gem 'searcher'
+gem 'oa-oauth', '0.2.6', :require => "omniauth/oauth"
 # gem 'cucumber-rails-training-wheels'
 
 

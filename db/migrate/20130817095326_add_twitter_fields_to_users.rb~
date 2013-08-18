@@ -1,0 +1,4 @@
+class AddTwitterFieldsToUsers < ActiveRecord::Migration
+  def change
+  end
+end
